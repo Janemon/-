@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>hello</title>
+  </head>
+  <body>
+    <h1>Hello!!!</h1>
+  </body>
+  <script>
+    let obj = {
+      "a": 2000,
+      "type": "small"
+    }
+    Object.defineProperty(obj, "a", {
+      get(){
+        console.log(`a 被访问了`)
+      },
+      set(val){
+        console.log(` a 的值被修改了， 新的值为 ${val}`)
+        val > 3000 ?  obj.type= "big" : obj.type= "small"
+        console.log(`type is ${obj.type}`)
+        // ?> 如果有多个属性依赖这个属性呢
+        // ?> 我们需要一个函数来循环观测每个属性，而每个属性做出的反应是不同的，那要怎么办呢
+        // ?> 我们要监听某个属性的变化，是不应该是嵌在这里的。我们应该是单独按照需要创建一个模块，来明面上执行这种变化
+        // !> 记住get和set是自动函数
+        // !> 依赖的目标是一个函数
+      }
+    })
+    // pneumatic, herald, pantry, wharf, pilgrim, inevitably
+    // 依赖，顾名思义，对于对象来说，他是某个属性(函数)依赖某个属性
+
+  </script>
+</html>
