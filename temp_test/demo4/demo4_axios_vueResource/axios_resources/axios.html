@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>axios</title>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>{{msg}}</h2>
+    <a href="javascript:;" @clik="get">get</a>
+    <a href="javascript:;">post</a>
+    <a href="javascript:;">http</a>
+    <p>{{showtext}}</p>
+  </div>
+  <script>
+    new Vue({
+      el:"#app",
+      data:{
+        msg: "This is test of resources-get",
+        showtext: ""
+      },
+      methods:{
+        get(){
+          axios.get("http://httpbin.org/get",{
+            params:{
+              userId: "123"
+            },
+            headers:{
+              token:"abcd"
+            }
+          }).then(res=>{
+            this.msg = res.data
+          }).catch(err=>{
+            this.msg = error
+          })
+        }
+      }
+    })
+  </script>
+
+</body>
+</html>

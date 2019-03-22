@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>using cross script to import Vue.js</title>
+    <script crossorigin="anonymous" integrity="sha384-WzTR/HVuHTZEIWaHJXTkGVCNkZz/jmMGFsGx4VlwMiaAtz9EMHcbRgLp38hkyHsR" src="https://lib.baomitu.com/vue/2.6.7/vue.common.dev.js"></script>
+  </head>
+  <body>
+    <h1 id="h1">{{message}}</h1>
+
+    <script>
+      let app = new Vue({
+        el:"#h1",
+        data: {
+          message: "hello, Vue!!!"
+        }
+      })
+    </script>
+  </body>
+</html>
